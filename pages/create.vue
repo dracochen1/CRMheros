@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Heros Corp</h1>
+    <h1>Créer un hero</h1>
   </div>
 </template>
