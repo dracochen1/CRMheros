@@ -1,14 +1,14 @@
 <template>
     <div class="nav">
         <nuxt-link to="/" class="brand">
-            HerosCorp
+          <img src="~/assets/Logo_HERO_CORP.png">
         </nuxt-link>
         <nav>
             <nuxt-link to="/">
-                List
+                Home
             </nuxt-link> |
-            <nuxt-link to="/create">
-                Create
+            <nuxt-link to="/info">
+                Informations
             </nuxt-link>
         </nav>
     </div>
@@ -26,7 +26,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 60px;
+      height: 200px;
+      align-items: center;
+      background-color: #0D1218;
+      margin:0px;
+      padding:20px;
     }
     .nav .nav-item {
       box-sizing: border-box;
@@ -41,4 +45,5 @@
     .nav a {
       display: inline-block;
     }
+    
 </style>

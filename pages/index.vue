@@ -1,5 +1,10 @@
 <template>
   <div>
-    <h1>Heros Corp</h1>
+    
   </div>
 </template>
+<style scoped>
+    h2{
+        text-align: center;
+    }
+</style>

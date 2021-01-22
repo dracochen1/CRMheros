@@ -1,0 +1,69 @@
+<template>
+<div class="Slider">
+  <div class="PriorText">
+    <h2>Nous sommes la première ligne de défense.
+    </h2>
+    <p>
+      <strong>Nous accomplissons ce que les autres ne peuvent pas accomplir et allons là où les autres ne peuvent pas aller.</strong><br>
+
+      Une carrière chez HerosCorp ne ressemble à aucune autre. Nous recherchons des personnes de tous horizons pour mener à bien l'œuvre de l'humanité.
+    </p>
+    <button>LANCER UNE ALERTE</button>
+  </div>
+  <div class="picture"><img src="~/assets/HerosCorp.png"></div>
+</div>
+
+</template>
+<style scoped>
+.Slider {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+  align-items: center;
+}
+
+.Slider > div {
+	width: 50%;
+	padding: 10px;
+}
+
+.Slider > div:first-child {
+	margin-right: 20px;
+}
+h2{
+  margin:0px;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  color:white;
+}
+
+p{
+  margin:0px;
+  color:white;
+}
+
+button{
+  margin-top: 40px;
+  padding: 20px;
+  display: inline-block;
+  background-color: #C01E25;
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 28px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: red;
+  width: 60%;
+}
+</style>

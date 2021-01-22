@@ -13,7 +13,9 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.1",
     "core-js": "^3.8.2",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "vue-slick": "^1.1.15",
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
@@ -23,6 +25,8 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.18.0",
     "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-vue": "^7.4.1"
+    "eslint-plugin-vue": "^7.4.1",
+    "sass-loader": "^7.3.1",
+    "sass-resources-loader": "^2.0.3"
   }
 }
