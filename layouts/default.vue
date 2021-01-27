@@ -2,37 +2,30 @@
   <div id="app">
     <nav-bar />
     <Nuxt />
-    <slider />
-    <carrousel />
+    <foot />
   </div>
 </template>
 
 <script>
+
 import NavBar from '~/components/NavBar.vue'
 export default {
   components: {
-    NavBar,
+    NavBar
   }
 }
 </script>
-<script>
-import Slider from '~/components/Slider.vue'
-export default {
-  components: {
-    Slider
-  } 
-}
-</script>
 
 <script>
 
-import Carrousel from '~/components/Carrousel.vue'
+import Foot from '~/components/Foot.vue'
 export default {
   components: {
-    Carrousel
-  } 
+    Foot
+  }
 }
 </script>
+
 
 
 <style>
@@ -111,4 +104,4 @@ export default {
     .errorMessage {
       color: red;
     }
-    </style>
+</style>

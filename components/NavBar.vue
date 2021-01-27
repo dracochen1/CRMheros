@@ -4,11 +4,11 @@
           <img src="~/assets/Logo_HERO_CORP.png">
         </nuxt-link>
         <nav>
-            <nuxt-link to="/">
-                Home
+            <nuxt-link to="/account">
+                Account
             </nuxt-link> |
-            <nuxt-link to="/info">
-                Informations
+            <nuxt-link to="/location">
+                Location
             </nuxt-link>
         </nav>
     </div>
