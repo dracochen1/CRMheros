@@ -8,12 +8,14 @@
 
       Une carrière chez HerosCorp ne ressemble à aucune autre. Nous recherchons des personnes de tous horizons pour mener à bien l'œuvre de l'humanité.
     </p>
-    <button>LANCER UNE ALERTE</button>
+    <nuxt-link to="/thanks">
+        <button>LANCER UNE ALERTE</button>
+    </nuxt-link>
   </div>
   <div class="picture"><img src="~/assets/HerosCorp.png"></div>
 </div>
-
 </template>
+
 <style scoped>
 .Slider {
 	display: -ms-flex;
