@@ -1,5 +1,5 @@
 <template>
-    <div class="nav">
+    <div class="nav" id="nav">
         <nuxt-link to="/" class="brand">
           <img src="~/assets/Logo_HERO_CORP.png">
         </nuxt-link>
