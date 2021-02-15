@@ -3,10 +3,10 @@
 
 <div class="center">
   <div class="property-card">
-    <a href="#">
+    <a href="http://localhost:3000/">
       <div class="property-image">
         <div class="property-image-title">
-          <h5> MERCI !</h5> 
+          <h5> 📡</h5> 
         </div>
       </div></a>
     <div class="property-description">
