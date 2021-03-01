@@ -4,7 +4,7 @@
           <img src="~/assets/Logo_HERO_CORP.png">
         </nuxt-link>
         <nav>
-            <nuxt-link to="/account">
+            <nuxt-link to="/login">
                 Account
             </nuxt-link> |
             <nuxt-link to="/location">
