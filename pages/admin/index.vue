@@ -13,7 +13,12 @@
         </div>
         <div class="container">
           <div class="container_logo_orga"><img src="@/assets/building.png" alt="logo orga" id="logo_container_orga"></div>
-          <h1>Nombre de super-heros</h1>       
+          <h1>Nombre de super-heros</h1>
+          <ul v-for="civil in civils" :key="civil.id">
+            <li>
+              <p>{{civil.lastName}}</p>
+            </li>
+          </ul>
         </div>
       </div>
       <div id="bottom">
@@ -31,23 +36,30 @@
 <script lang="ts">
 import Vue from 'vue'
 import menuAdmin from '~/components/menuAdmin.vue'
-export default Vue.extend({
+export default {
   components: { menuAdmin },
   layout: "admin",
-  asyncData(){
+  asyncData: async ({ $axios }) => {
     var date = new Date()
     var month = date.getMonth() + 1;
     var dateday = date.getDate() +"/" +  month +"/" +  date.getFullYear();
-    return{ date : dateday}
+    const  civils  = await $axios.$get(`http://localhost:8080/civils/`);
+    return {
+      date: dateday,
+      civils: civils
+    };
+
+
   },
-})
+}
 
 </script>
+
 
 <style scoped>
 #logo_container_mission,#logo_container_hero, #logo_container_orga{
   width: 70%;
-  
+
 }
 .container_logo_mission{
   position: absolute;
@@ -86,7 +98,7 @@ export default Vue.extend({
   opacity: 70%;
 }
 #right{
-  
+
   width: 84vw;
   float: right;
 }
@@ -121,7 +133,7 @@ export default Vue.extend({
 #bottom h1{
   font-size: 1.3em;
   color: white;
-  
+
 }
 #location_hero_titre, #score_hero{
   background-color: #fcbf5d;

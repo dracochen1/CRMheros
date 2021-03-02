@@ -10,7 +10,8 @@ import menuAdmin from '~/components/menuAdmin.vue'
 export default Vue.extend({
   components: { menuAdmin },
   layout: "admin"
-    
+
+  
 })
 </script>
 
