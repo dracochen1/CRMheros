@@ -21,12 +21,12 @@ export default {
   },
 
   actions: {
-    [CIVIL_LOGIN]({commit}, {id}) {
-      axios.get('http://localhost:8080/auth/login/' + id)
+    [CIVIL_LOGIN]: async ({commit}, {id}) => {
+      await axios.get('http://localhost:8080/auth/login/' + id)
         .then(response => {
-          console.log(response.data);
-          commit(SET_CIVIL, response.data)
-        })
+          if (response.ok) {
+            commit(SET_CIVIL, response.data)
+          }})
         .catch(response => {
           throw response.statusText;
         })
