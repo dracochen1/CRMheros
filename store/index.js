@@ -5,10 +5,12 @@ export const SET_CIVIL = 'SET_CIVIL';
 
 
 export default {
+
   state: () => ({
     loginSuccess: false,
     civilId: null,
     civilRole: null,
+    civilFirstName: null,
   }),
 
 
@@ -17,6 +19,7 @@ export default {
       state.loginSuccess = true;
       state.civilId = civil.id;
       state.civilRole = civil.role; // ici doit apparaître le champ fk_role de la table civil
+      state.civilFirstName = civil.firstName;
     },
   },
 
@@ -24,9 +27,8 @@ export default {
     [CIVIL_LOGIN]: async ({commit}, {id}) => {
       await axios.get('http://localhost:8080/auth/login/' + id)
         .then(response => {
-          if (response.ok) {
             commit(SET_CIVIL, response.data)
-          }})
+          })
         .catch(response => {
           throw response.statusText;
         })
@@ -37,5 +39,6 @@ export default {
     isLoggedIn: state => state.loginSuccess,
     getCivilId: state => state.civilId,
     getCivilRole: state => state.civilRole,
+    getCivilFistName: state => state.civilFirstName
   }
 }
