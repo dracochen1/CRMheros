@@ -1,26 +1,29 @@
 <template>
     <div class="main">
         <menu-admin/>
-        <alert id="alert"/>
         <div id="right">
         <div id="tab">
             <div id="titre"><h1>Liste des incidents enregistrés</h1></div>
-            <table>
+            <div id="table">
+                <table>
                <tr>
                    <td>
-                       Type
+                       <strong>Type</strong>
                    </td>
                    <td>
-                       Description
+                       <strong>Description</strong>
                    </td>
                    <td>
-                       Lieu
+                       <strong>Lieu</strong>
                    </td>
                    <td>
-                       Source
+                       <strong>Source</strong>
                    </td>
                    <td>
-                       Detail
+                       <strong>Status</strong>
+                    </td>
+                   <td>
+                       <strong>Detail</strong>
                    </td>
                 </tr>
                 <tr v-for="element in incident" :key="element.id">
@@ -28,11 +31,14 @@
                     <td>{{element.description}}</td>
                     <td>{{element.location}}</td>
                     <td>{{element.source}}</td>
-                    <td><NuxtLink :to="`/admin/incident/${element.id}`"><img src="" alt="logo detail"></NuxtLink></td>
+                    <td v-if="element.status === true" style="color:green">Ouvert</td>
+                    <td style="color:red" v-else-if="element.status === false" >Fermé</td>
+                    <td><NuxtLink :to="`/admin/incidents/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
                 </tr> 
         
                 
             </table>
+            </div>
         </div>
     </div>
     </div>
@@ -41,6 +47,7 @@
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue'
 import menuAdmin from '~/components/menuAdmin.vue'
+import axios from 'axios';
 export default Vue.extend({
   components: { menuAdmin, Alert },
   layout: "admin",
@@ -51,18 +58,26 @@ export default Vue.extend({
             var url = incidents[i].id;
             incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
         }
-        var alert = false;
-        for(var i = 0; i < incident.length; i++){
-            if(incident[i].alert === true){
-                alert = true;
-            }
+        for(var i= 0; i < incident.length; i++){
+            for(var i = 0; i < incident.length; i++){
+               axios.patch(`http://localhost:8080/incidents/${incident[i].id}`, {
+              "type": incident[i].type,
+              "description": incident[i].description,
+              "location" : incident[i].location,
+              "source" : incident[i].source,
+              "alert" : false,
+              "status" : incident[i].status
+              })
+              .then((response) => {
+                  console.log(response);
+              }, (error) => {
+                  console.log(error);
+              });
+             }
         }
-        if(alert === true){
-            //document.querySelector("#alert").style.display = "block";
-        }   
+        incident.reverse();
         return{
             incident : incident,
-            alert : alert
         }
         
     }
@@ -75,10 +90,17 @@ export default Vue.extend({
   width: 84vw;
   float: right;
 }
+#eye{
+    width: 30px;
+}
+#eye:hover,#eye:focus{
+    transform: scale(1.15);
+    transition: 300ms;
+}
 #tab{
     background-color: #f2f2f2;
     width: 90%;
-    height: 80%;
+    height: 600px;
     margin: auto;
     border-radius: 20px;
     margin-top: 10vh;
@@ -108,5 +130,10 @@ table{
 }
 table tr td{
     text-align: center;
+}
+#table{
+    width: 100%;
+    height: 80%;
+    overflow: auto;
 }
 </style>

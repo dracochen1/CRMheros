@@ -17,7 +17,7 @@
 
               <div class="modal-footer">
                 <slot name="footer">
-                  <button class="modal-default-button left" @click="closeModalAndRedirect">
+                  <button class="modal-default-button left" @click="closeModalAndRedirect()">
                       Regarder
                   </button>
                   <button class="modal-default-button right" @click="closeModal">
@@ -32,15 +32,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
     methods:{
         closeModal : function (){
             document.querySelector(".modal-mask").style.display = "none";
         },
         closeModalAndRedirect : function(){
-             document.querySelector(".modal-mask").style.display = "none";
-             document.location.href="/admin/incident";
+             
+            document.querySelector(".modal-mask").style.display = "none";
+            document.location.href="/admin/incident";
         }
 
     },

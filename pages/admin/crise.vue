@@ -1,6 +1,9 @@
 <template>
   <div class="main">
     <menu-admin/>
+    <div v-if="alert === true">
+        <alert/>
+    </div>
     <div id="right">
       <div id="tab">
         <div id="titre"><h1>Liste des crises</h1></div>
@@ -29,16 +32,34 @@ export default({
     layout: "admin",
     asyncData: async ({$axios}) => {
       const crises = await $axios.$get(`http://localhost:8080/crises/`);
+      var incident = [];
+        const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
+        for(var i = 0; i < incidents.length ; i++){
+            var url = incidents[i].id;
+            incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
+        }
+        var alert = false;
+        for(var i = 0; i < incident.length; i++){
+            if(incident[i].alert === true){
+                alert = true;
+            }
+        }  
       return {
-        crises: crises
+        crises: crises,
+         alert : alert
       };
-
 
     },
   }
 )
 </script>
 <style scoped>
+#false{
+    display: none;
+}
+#true{
+    display: table;
+}
 #right{
 
   width: 84vw;
