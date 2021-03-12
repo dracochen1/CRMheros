@@ -39,6 +39,7 @@
 import {CIVIL_LOGIN} from '~/store';
 
 export default {
+  layout: "admin",
   name: "login",
 
   data() {
