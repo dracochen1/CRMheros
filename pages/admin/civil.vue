@@ -7,7 +7,12 @@
             <table>
                <tr>
                    <td>
-                       Nom
+                     Nom
+                     <ul v-for="civil in civils" :key="civil.id">
+                       <li>
+                         <NuxtLink :to="`/admin/civils/${civil.id}`">{{civil.id}}</NuxtLink>
+                       </li>
+                     </ul>
                    </td>
                    <td>
                        Prénom
@@ -31,13 +36,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
 import menuAdmin from '~/components/menuAdmin.vue'
-export default Vue.extend({
-    components: { menuAdmin },
+export default({
+    components: {menuAdmin},
     layout: "admin",
-})
+    asyncData: async ({$axios}) => {
+      const civils = await $axios.$get(`http://localhost:8080/civils/`);
+      return {
+        civils: civils
+      };
+    },
+  }
+)
 </script>
 <style scoped>
 #right{
