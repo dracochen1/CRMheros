@@ -1,6 +1,9 @@
 <template>
   <div class="main">
     <menu-admin/>
+    <div v-if="alert === true">
+        <alert/>
+    </div>
     <div id="right">
       <div id="top">
         <div class="container">
@@ -36,17 +39,31 @@
 <script>
 import Vue from 'vue'
 import menuAdmin from '~/components/menuAdmin.vue'
+import Alert from '~/components/Alert.vue'
 export default {
-  components: { menuAdmin },
+  components: { menuAdmin, Alert },
   layout: "admin",
   asyncData: async ({ $axios }) => {
     var date = new Date()
     var month = date.getMonth() + 1;
     var dateday = date.getDate() +"/" +  month +"/" +  date.getFullYear();
     const  civils  = await $axios.$get(`http://localhost:8080/civils/`);
+    var incident = [];
+    const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
+    for(var i = 0; i < incidents.length ; i++){
+        var url = incidents[i].id;
+        incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
+    }
+    var alert = false;
+    for(var i = 0; i < incident.length; i++){
+        if(incident[i].alert === true){
+            alert = true;
+        }
+    }
     return {
       date: dateday,
-      civils: civils
+      civils: civils,
+      alert : alert
     };
 
 
@@ -60,6 +77,12 @@ export default {
 #logo_container_mission,#logo_container_hero, #logo_container_orga{
   width: 70%;
 
+}
+#false{
+    display: none;
+}
+#true{
+    display: table;
 }
 .container_logo_mission{
   position: absolute;
