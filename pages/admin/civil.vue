@@ -11,7 +11,12 @@
             <table>
                <tr>
                    <td>
-                       Nom
+                     Nom
+                     <ul v-for="civil in civils" :key="civil.id">
+                       <li>
+                         <NuxtLink :to="`/admin/civils/${civil.id}`">{{civil.id}}</NuxtLink>
+                       </li>
+                     </ul>
                    </td>
                    <td>
                        Prénom
@@ -35,7 +40,8 @@
   </div>
 </template>
 
-<script lang="ts">
+
+<script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
 import axios from 'axios';
@@ -58,7 +64,9 @@ export default Vue.extend({
             }
         } 
         return {
-        alert : alert
+        alert : alert,
+        civils : civils
+        
         };
     }
 

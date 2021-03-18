@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>{{ civil.lastName }}</h1>
-      <NuxtLink to="/external-plugins">Back to Posts</NuxtLink>
+      <NuxtLink to="http://localhost:8080/civils/">Back to Civils</NuxtLink>
   </div>
 </template>
 

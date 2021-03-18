@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import menuAdmin from '~/components/menuAdmin.vue'
 export default({
@@ -48,7 +48,6 @@ export default({
         crises: crises,
          alert : alert
       };
-
     },
   }
 )

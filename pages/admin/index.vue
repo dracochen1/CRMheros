@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import menuAdmin from '~/components/menuAdmin.vue'
 import Alert from '~/components/Alert.vue'
