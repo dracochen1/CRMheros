@@ -34,16 +34,16 @@
                     <td v-if="element.status === true" style="color:green">Ouvert</td>
                     <td style="color:red" v-else-if="element.status === false" >Fermé</td>
                     <td><NuxtLink :to="`/admin/incidents/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
-                </tr> 
-        
-                
+                </tr>
+
+
             </table>
             </div>
         </div>
     </div>
     </div>
 </template>
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue'
 import menuAdmin from '~/components/menuAdmin.vue'
@@ -79,9 +79,9 @@ export default Vue.extend({
         return{
             incident : incident,
         }
-        
+
     }
-    
+
 })
 </script>
 <style scoped>

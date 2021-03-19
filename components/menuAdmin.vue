@@ -9,14 +9,14 @@
         <li><img src="@/assets/verified.png" alt="logo bouclier superhéros" class="logo_menu"><nuxt-link to="/admin/superheros" class="menu_link">Super-héros</nuxt-link></li>
         <li><img src="@/assets/spy2.png" alt="logo supervilains" class="logo_menu"><nuxt-link to="/admin/supervilains" class="menu_link">Super-vilains</nuxt-link></li>
         <li><img src="@/assets/globe.png" alt="logo incident" class="logo_menu"><nuxt-link to="/admin/incident" class="menu_link">Incidents</nuxt-link></li>
-        <li><img src="@/assets/Mission.png" alt="logo mission" class="logo_menu"><nuxt-link to="" class="menu_link">Missions</nuxt-link></li>
+        <li><img src="@/assets/Mission.png" alt="logo mission" class="logo_menu"><nuxt-link to="/admin/mission" class="menu_link">Missions</nuxt-link></li>
         <li><img src="@/assets/crise1.png" alt="logo crise" class="logo_menu"><nuxt-link to="/admin/crise" class="menu_link">Crises</nuxt-link></li>
-        <li><img src="@/assets/rapport.png" alt="logo rapport" class="logo_menu"><nuxt-link to="" class="menu_link">Rapports</nuxt-link></li>
+        <li><img src="@/assets/rapport.png" alt="logo rapport" class="logo_menu"><nuxt-link to="/admin/rapport" class="menu_link">Rapports</nuxt-link></li>
     </ul>
 </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 export default Vue.extend({
 

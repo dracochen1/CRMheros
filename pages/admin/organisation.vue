@@ -16,7 +16,7 @@
                        Siège social
                    </td>
                    <td>
-                       Dirigeant 
+                       Dirigeant
                    </td>
                    <td>
                        Commentaire
@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
 import menuAdmin from '~/components/menuAdmin.vue'
@@ -50,7 +50,7 @@ export default Vue.extend({
             if(incident[i].alert === true){
                 alert = true;
             }
-        }  
+        }
         return {
         alert : alert
         };
