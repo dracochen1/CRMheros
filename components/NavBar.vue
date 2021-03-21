@@ -1,5 +1,5 @@
 <template>
-    <div class="nav" id="nav">
+    <div class="nav">
         <nuxt-link to="/" class="brand">
           <img src="~/assets/Logo_HERO_CORP.png">
         </nuxt-link>
@@ -12,7 +12,7 @@
             </nuxt-link>
         </nav>
     </div>
-    
+
 </template>
 <style scoped>
     .brand {
@@ -26,7 +26,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 200px;
+      height: 250px;
       align-items: center;
       background-color: #0D1218;
       margin:0px;
@@ -45,5 +45,5 @@
     .nav a {
       display: inline-block;
     }
-    
+
 </style>

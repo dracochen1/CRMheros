@@ -24,8 +24,9 @@
   width: 75%;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .Slider > div {

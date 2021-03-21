@@ -1,8 +1,7 @@
 <template>
   <div>
-    <slider />
-    <h3>Nos supers sont là pour vous ! </h3>
     <carrousel />
+    <slider />
   </div>
 </template>
 
@@ -12,7 +11,7 @@ import Slider from '~/components/Slider.vue'
 export default {
   components: {
     Slider
-  } 
+  }
 }
 </script>
 
@@ -21,7 +20,7 @@ import Carrousel from '~/components/Carrousel.vue'
 export default {
   components: {
     Carrousel
-  } 
+  }
 }
 </script>
 
@@ -63,6 +62,9 @@ export default {
     h3 {
       font-size: 28px;
       font-weight: 700;
+      color: white;
+      text-align: center;
+      margin-top: 50px ;
     }
     h4 {
       font-size: 21px;
