@@ -8,14 +8,33 @@
 
       Une carrière chez HerosCorp ne ressemble à aucune autre. Nous recherchons des personnes de tous horizons pour mener à bien l'œuvre de l'humanité.
     </p>
-    <nuxt-link to="/thanks">
-        <button>LANCER UNE ALERTE</button>
-    </nuxt-link>
+    <button @click="postAlert">LANCER UNE ALERTE</button>
   </div>
   <div class="picture"><img src="~/assets/HerosCorp.png"></div>
 </div>
 </template>
-
+<script>
+import axios from 'axios';
+export default {
+  methods:{
+    postAlert : function(){
+   axios.post('http://localhost:8080/incidents/', {
+              "type": "incidie",
+              "description": "un incendie est déclaré",
+              "location" : "Paris",
+              "source" : "Glenn Oberlé",
+              "alert" : false,
+              "status" : true
+              })
+              .then(() => {
+                  document.location.href="/thanks";
+              }, (error) => {
+                  console.log(error);
+              });
+    }
+  }
+}
+</script>
 <style scoped>
 .Slider {
 	display: -ms-flex;

@@ -13,11 +13,13 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/bootstrap-vue": "^2.0.4",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
-    "axios": "^0.21.1",
     "core-js": "^3.8.2",
     "nuxt": "^2.14.12",
+    "vue": "^2.6.12",
     "vue-slick": "^1.1.15",
     "vue-slick-carousel": "^1.0.6"
   },
