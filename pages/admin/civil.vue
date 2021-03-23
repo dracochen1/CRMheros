@@ -11,7 +11,7 @@
             <table>
                <tr>
                    <td>
-                       Nom
+                     Nom
                    </td>
                    <td>
                        Prénom
@@ -30,7 +30,7 @@
                    </td>
 
                 </tr>
-                <tr v-for="element in civil" :key="element.id">
+                <tr v-for="element in civils" :key="element.id">
                     <td>{{element.lastName}}</td>
                     <td>{{element.firstName}}</td>
                     <td>{{element.address}}</td>
@@ -43,7 +43,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
@@ -72,7 +71,7 @@ export default Vue.extend({
         } 
         return {
         alert : alert,
-        civil : civil
+        civil : civils
         };
     }
 

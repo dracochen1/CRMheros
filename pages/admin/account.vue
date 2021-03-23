@@ -1,12 +1,11 @@
 <template>
   <div>
     <menu-admin/>
-
     <div> Bonjour <span class="font-weight-bold">{{ civilFirstName }}</span></div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';

@@ -10,14 +10,14 @@
             <p>Lieu de l'incident : {{incident.location}}</p>
             <p>Déclarant.s de l'incident : {{incident.source}}</p>
             <div id="container_button" v-if="incident.status === true">
-                <button id="button_decl">Declancher une mission</button>
+                <button id="button_decl">Declencher une mission</button>
                 <button id="button_close" @click="closeIncident(incident)">Fermer l'incident</button>
             </div>
             <div v-else-if="incident.status === false" id="incident_close">
               <p style="color:red">L'incident est fermé</p>
             </div>
         </div>
-       
+
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
       closeIncident: function(incident){
-       
+
         axios.patch(`http://localhost:8080/incidents/${incident.id}`, {
             "type": incident.type,
             "description": incident.description,
@@ -45,9 +45,9 @@ export default {
         })
         .then((response) => {
             document.location.href = `/admin/incidents/${incident.id}`
-           
+
         }, (error) => {
-            
+
         });
       }
   }
@@ -60,7 +60,7 @@ export default {
   display: flex;
   align-items: center;
   float: right;
-  
+
 }
 #container_incident{
    border-radius: 10px;
@@ -68,7 +68,7 @@ export default {
     height: 70vh;
     margin: auto;
     background-color: #f2f2f2;
-    
+
 }
 #container_incident p, #container_incident h3{
     text-align: center;

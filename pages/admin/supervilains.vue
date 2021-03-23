@@ -6,7 +6,9 @@
     </div>
     <div id="right">
         <div id="tab">
-            <div id="titre"><h1>Liste des Super-vilains</h1></div>
+            <div id="titre">
+              <h1>Liste des Super-vilains</h1>
+            </div>
             <table>
                <tr>
                    <td>
@@ -16,7 +18,7 @@
                        Identité secrète
                    </td>
                    <td>
-                       Pouvoir 
+                       Pouvoir
                    </td>
                    <td>
                        Points faibles
@@ -31,7 +33,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
 import menuAdmin from '~/components/menuAdmin.vue'
@@ -50,7 +52,7 @@ export default Vue.extend({
             if(incident[i].alert === true){
                 alert = true;
             }
-        }  
+        }
         return {
         alert : alert
         };

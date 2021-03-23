@@ -6,8 +6,8 @@
 
               <div class="modal-header">
                <h3>
-                  Une incident a été déclaré 
-               </h3> 
+                  Une incident a été déclaré
+               </h3>
               </div>
 
               <div class="modal-body">
@@ -31,7 +31,7 @@
       </transition>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 export default Vue.extend({
     methods:{
@@ -39,7 +39,7 @@ export default Vue.extend({
             document.querySelector(".modal-mask").style.display = "none";
         },
         closeModalAndRedirect : function(){
-             
+
             document.querySelector(".modal-mask").style.display = "none";
             document.location.href="/admin/incident";
         }
