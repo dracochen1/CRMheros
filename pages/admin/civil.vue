@@ -47,7 +47,6 @@
 <script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
-import axios from 'axios';
 import menuAdmin from '~/components/menuAdmin.vue'
 export default Vue.extend({
     components: { menuAdmin, Alert },

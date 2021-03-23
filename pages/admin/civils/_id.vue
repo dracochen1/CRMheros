@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
 import menuAdmin from '~/components/menuAdmin.vue';
 export default {
   components: { menuAdmin },
