@@ -19,7 +19,7 @@
             <p>Nombre d'incidents subit : <span>{{civils.numberOfAccidentsSuffered}}</span></p>
             <p>Incident.s : <span>{{civils.incidents}}</span></p>
         </div>
-       
+        </div>
     </div>
 </template>
 
