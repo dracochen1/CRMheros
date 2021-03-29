@@ -3,7 +3,6 @@ import axios from "axios";
 export const CIVIL_LOGIN = 'CIVIL_LOGIN';
 export const SET_CIVIL = 'SET_CIVIL';
 
-
 export default {
 
   state: () => ({

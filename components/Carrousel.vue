@@ -18,7 +18,7 @@
         <template #img>
           <img
             width="1024"
-            height="650"
+            height="680"
             src="https://static0.srcdn.com/wordpress/wp-content/uploads/2020/11/superman-angry-featured.jpg"
             alt="Superman"
           >
@@ -29,7 +29,7 @@
         <template #img>
           <img
             width="1024"
-            height="650"
+            height="680"
             src="https://static3.srcdn.com/wordpress/wp-content/uploads/2020/05/Batman-Jason-Fabok-Comic-Art.jpg"
             alt="Batman"
           >
@@ -41,7 +41,7 @@
         <template #img>
           <img
             width="1024"
-            height="650"
+            height="680"
             src="https://c.wallhere.com/photos/b8/b4/1920x984_px_DC_Comics_Supergirl_superhero-1094145.jpg!d"
             alt="Supergirl"
           >
@@ -52,7 +52,7 @@
         <template #img>
           <img
             width="1024"
-            height="650"
+            height="680"
             src="https://www.disneyphile.fr/wp-content/uploads/2021/02/thumb2-deadpool-4k-superheroes-art-gun.jpg"
             alt="Deadpool"
           >
@@ -64,7 +64,7 @@
         <template #img>
           <img
             width="1024"
-            height="650"
+            height="680"
             src="https://images.hdqwalls.com/wallpapers/the-boys-season-2-x6.jpg"
             alt="The seven"
           >

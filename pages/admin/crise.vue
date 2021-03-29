@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import menuAdmin from '~/components/menuAdmin.vue'
 export default({
     components: {menuAdmin},
@@ -43,10 +42,10 @@ export default({
             if(incident[i].alert === true){
                 alert = true;
             }
-        }  
+        }
       return {
         crises: crises,
-         alert : alert
+        alert : alert
       };
     },
   }

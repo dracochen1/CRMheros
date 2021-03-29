@@ -79,9 +79,7 @@ export default Vue.extend({
         return{
             incident : incident,
         }
-
     }
-
 })
 </script>
 <style scoped>

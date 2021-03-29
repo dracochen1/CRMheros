@@ -4,7 +4,7 @@
     <div v-if="alert === true">
         <alert/>
     </div>
-    
+
     <div id="right">
         <div id="tab">
             <div id="titre"><h1>Liste des civils</h1></div>
@@ -36,8 +36,11 @@
                 </tr>
             </table>
         </div>
+      <button><NuxtLink :to="`/admin/civils/post`">Ajouter un civil</NuxtLink></button>
     </div>
+
   </div>
+
 </template>
 
 
@@ -49,7 +52,7 @@ import menuAdmin from '~/components/menuAdmin.vue'
 export default Vue.extend({
     components: { menuAdmin, Alert },
     layout: "admin",
-    asyncData : async function test ({$axios}) { 
+    asyncData : async function test ({$axios}) {
         const civils  = await $axios.$get(`http://localhost:8080/civils/`);
         var incident = [];
         const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
@@ -62,11 +65,11 @@ export default Vue.extend({
             if(incident[i].alert === true){
                 alert = true;
             }
-        } 
+        }
         return {
         alert : alert,
         civils : civils
-        
+
         };
     }
 
@@ -110,5 +113,15 @@ table{
 }
 table tr td{
     text-align: center;
+}
+button{
+  display: block;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 25px;
+  height: 50px;
+  width: 150px;
+  margin-bottom: 25px;
 }
 </style>
