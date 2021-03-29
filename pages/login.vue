@@ -12,7 +12,7 @@
             </div>
             <div class="my-3">
               <label class="text-lg"></label>
-              <b-form-input v-model="civil.id" class="input-form-login" placeholder="SERVICE ID"></b-form-input>
+              <b-form-input v-model="civil.mail" class="input-form-login" placeholder="SERVICE MAIL"></b-form-input>
             </div>
             <div class="">
               <label class="text-lg"></label>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       civil: {
-        id: "",
+        mail: "",
         password: "",
         hasErrors: false
       },
@@ -50,14 +50,13 @@ export default {
   },
   methods: {
     logIn() {
-      this.$store.dispatch(CIVIL_LOGIN, {id: this.civil.id})
+      this.$store.dispatch(CIVIL_LOGIN, {mail: this.civil.mail})
         .then(() => {
           this.hasErrors = false;
           this.$router.push({name: 'admin'})
         })
         .catch(() => {
           this.hasErrors = true
-          console.log(this.hasErrors)
         });
     }
   }
