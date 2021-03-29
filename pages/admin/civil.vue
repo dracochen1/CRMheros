@@ -127,8 +127,8 @@ table{
 table tr td{
     text-align: center;
 }
-<<<<<<< HEAD
-button{
+
+button {
   display: block;
   text-align: center;
   margin-right: auto;
@@ -137,11 +137,10 @@ button{
   height: 50px;
   width: 150px;
   margin-bottom: 25px;
-=======
+}
 #table{
     width: 100%;
     height: 80%;
     overflow: auto;
->>>>>>> 52bbbbaf44c79661ea6d7202f0d2b6bee4f0fe17
 }
 </style>
