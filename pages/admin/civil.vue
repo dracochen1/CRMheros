@@ -12,11 +12,6 @@
                <tr>
                    <td>
                      Nom
-                     <ul v-for="civil in civils" :key="civil.id">
-                       <li>
-                         <NuxtLink :to="`/admin/civils/${civil.id}`">{{civil.id}}</NuxtLink>
-                       </li>
-                     </ul>
                    </td>
                    <td>
                        Prénom
@@ -33,7 +28,16 @@
                    <td>
                        Détail
                    </td>
+
                 </tr>
+                <tr v-for="element in civils" :key="element.id">
+                    <td>{{element.lastName}}</td>
+                    <td>{{element.firstName}}</td>
+                    <td>{{element.address}}</td>
+                    <td>{{element.mail}}</td>
+                    <td>{{element.phone}}</td>
+                    <td><NuxtLink :to="`/admin/civils/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
+                </tr> 
             </table>
         </div>
       <button><NuxtLink :to="`/admin/civils/post`">Ajouter un civil</NuxtLink></button>
@@ -42,19 +46,21 @@
   </div>
 
 </template>
-
-
 <script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
-import axios from 'axios';
 import menuAdmin from '~/components/menuAdmin.vue'
 export default Vue.extend({
     components: { menuAdmin, Alert },
     layout: "admin",
     asyncData : async function test ({$axios}) {
         const civils  = await $axios.$get(`http://localhost:8080/civils/`);
+        var civil = [];
         var incident = [];
+        for(var i = 0; i < civils.length ; i++){
+            var url = civils[i].id;
+            civil.push(await $axios.$get(`http://localhost:8080/civils/` + url));
+        }
         const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
         for(var i = 0; i < incidents.length ; i++){
             var url = incidents[i].id;
@@ -69,7 +75,6 @@ export default Vue.extend({
         return {
         alert : alert,
         civils : civils
-
         };
     }
 
@@ -77,13 +82,21 @@ export default Vue.extend({
 </script>
 <style scoped>
 #right{
+
   width: 84vw;
   float: right;
+}
+#eye{
+    width: 30px;
+}
+#eye:hover,#eye:focus{
+    transform: scale(1.15);
+    transition: 300ms;
 }
 #tab{
     background-color: #f2f2f2;
     width: 90%;
-    height: 80%;
+    height: 600px;
     margin: auto;
     border-radius: 20px;
     margin-top: 10vh;
@@ -113,7 +126,7 @@ table{
 }
 table tr td{
     text-align: center;
-}
+
 button{
   display: block;
   text-align: center;
@@ -123,5 +136,10 @@ button{
   height: 50px;
   width: 150px;
   margin-bottom: 25px;
+
+#table{
+    width: 100%;
+    height: 80%;
+    overflow: auto;
 }
 </style>
