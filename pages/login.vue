@@ -6,22 +6,22 @@
         <div class="inner-right-middle">
           <form @submit.prevent="logIn">
             <h2>
-              We are the Nation's First line of defense.</h2>
+              Nous sommes la première ligne de défense.</h2>
             <div v-if="hasErrors" class="alert alert-danger">
               <p>Les identifiants ne sont pas valides</p>
             </div>
             <div class="my-3">
               <label class="text-lg"></label>
-              <b-form-input v-model="civil.mail" class="input-form-login" placeholder="SERVICE MAIL"></b-form-input>
+              <b-form-input v-model="civil.mail" class="input-form-login" placeholder="MAIL DE SERVICE"></b-form-input>
             </div>
             <div class="">
               <label class="text-lg"></label>
-              <b-form-input v-model="civil.password" class="input-form-login" placeholder="PASSWORD"
+              <b-form-input v-model="civil.password" class="input-form-login" placeholder="MOT DE PASSE"
                             type="password"></b-form-input>
             </div>
             <div class="">
               <button class="btn btn-lg" type="submit" @click="logIn">
-                Confirm
+                Se connecter
               </button>
             </div>
           </form>
