@@ -1,26 +1,26 @@
 <template>
-     <transition name="modal">
-        <div class="modal-mask">
-          <div class="modal-wrapper">
-            <div class="modal-container">
+     <transition name="modal2">
+        <div class="modal-mask2">
+          <div class="modal-wrapper2">
+            <div class="modal-container2">
 
-              <div class="modal-header">
+              <div class="modal-header2">
                <h3>
                   Une incident a été déclaré
                </h3>
               </div>
 
-              <div class="modal-body">
-                <slot name="body">
+              <div class="modal-body2">
+                <slot name="body2">
                 </slot>
               </div>
 
-              <div class="modal-footer">
-                <slot name="footer">
-                  <button class="modal-default-button left" @click="closeModalAndRedirect()">
+              <div class="modal-footer2">
+                <slot name="footer2">
+                  <button class="modal-default-button2 left2" @click="closeModalAndRedirect()">
                       Regarder
                   </button>
-                  <button class="modal-default-button right" @click="closeModal">
+                  <button class="modal-default-button2 right2" @click="closeModal">
                       Fermer
                   </button>
                 </slot>
@@ -36,11 +36,11 @@ import Vue from 'vue';
 export default Vue.extend({
     methods:{
         closeModal : function (){
-            document.querySelector(".modal-mask").style.display = "none";
+            document.querySelector(".modal-mask2").style.display = "none";
         },
         closeModalAndRedirect : function(){
 
-            document.querySelector(".modal-mask").style.display = "none";
+            document.querySelector(".modal-mask2").style.display = "none";
             document.location.href="/admin/incident";
         }
 
@@ -48,7 +48,7 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
-.modal-mask {
+.modal-mask2 {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -60,12 +60,12 @@ export default Vue.extend({
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
+.modal-wrapper2 {
   display: table-cell;
   vertical-align: middle;
 }
 
-.modal-container {
+.modal-container2 {
   width: 400px;
   margin: 0px auto;
   height: 130px;
@@ -76,35 +76,35 @@ export default Vue.extend({
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
-.modal-header{
+.modal-header2{
     background-color: #e74c3c;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.modal-header h3 {
+.modal-header2 h3 {
     font-size: 1em;
 }
 
-.modal-body {
+.modal-body2 {
   margin: 20px 0;
 }
 
-.modal-enter {
+.modal-enter2 {
   opacity: 0;
 }
 
-.modal-leave-active {
+.modal-leave-active2 {
   opacity: 0;
 }
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.modal-enter2 .modal-container2,
+.modal-leave-active2 .modal-container2 {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-.modal-default-button.left{
+.modal-default-button2.left2{
     background-color: #e74c3c;
     border: none;
     padding: 10px 30px;
@@ -113,7 +113,7 @@ export default Vue.extend({
     border: 2px solid #e74c3c;
 
 }
-.modal-default-button.right{
+.modal-default-button2.right2{
     border: none;
     padding: 10px 30px;
     color: black;
@@ -121,16 +121,16 @@ export default Vue.extend({
     border: 2px solid #bdc3c7;
     cursor: pointer;
 }
-.modal-default-button.right:hover{
+.modal-default-button2.right2:hover{
     background-color: white;
     transition: 300ms;
 }
-.modal-default-button.left:hover{
+.modal-default-button2.left2:hover{
     background-color: white;
     color: #e74c3c;
     transition: 300ms;
 }
-.modal-footer{
+.modal-footer2{
     display: flex;
     flex-direction: row;
     justify-content: space-around;

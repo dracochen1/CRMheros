@@ -10,7 +10,7 @@
             <p>Lieu de l'incident : {{incident.location}}</p>
             <p>Déclarant.s de l'incident : {{incident.source}}</p>
             <div id="container_button" v-if="incident.status === true">
-                <button id="button_decl">Declencher une mission</button>
+                <button id="button_decl" @click="declancheMission(incident)">Declencher une mission</button>
                 <button id="button_close" @click="closeIncident(incident)">Fermer l'incident</button>
             </div>
             <div v-else-if="incident.status === false" id="incident_close">
@@ -19,6 +19,7 @@
         </div>
 
     </div>
+    <form-mission id="container_mission"/>
   </div>
 </template>
 
@@ -33,6 +34,14 @@ export default {
     return { incident }
   },
   methods: {
+      declancheMission : function(incident){
+        document.querySelector("#container_mission").style.display = "flex";
+        document.querySelector("#container_mission").style.justifyContent = "center";
+        document.querySelector("#container_mission").style.alignItems = "center";
+      },
+      test: function(){
+        console.log("test");
+      },
       closeIncident: function(incident){
 
         axios.patch(`http://localhost:8080/incidents/${incident.id}`, {
@@ -50,10 +59,13 @@ export default {
 
         });
       }
-  }
+  },
 }
 </script>
 <style scoped>
+#container_mission{
+  display: none;
+}
 #right{
   width: 83vw;
   height: 100vh;

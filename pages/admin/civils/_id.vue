@@ -19,15 +19,16 @@
             <p>Nombre d'incidents subit : <span>{{civils.numberOfAccidentsSuffered}}</span></p>
             <p>Incident.s : <span>{{civils.incidents}}</span></p>
         </div>
-       
+       </div>
     </div>
 </template>
 
 <script>
+import FormMission from '~/components/FormMission.vue';
 
 import menuAdmin from '~/components/menuAdmin.vue';
 export default {
-  components: { menuAdmin },
+  components: { menuAdmin, FormMission },
     layout: "admin",
   async asyncData ({ $axios, params }) {
     const civils  = await $axios.$get(`http://localhost:8080/civils/${params.id}`)
