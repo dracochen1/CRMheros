@@ -28,7 +28,6 @@
                    <td>
                        Détail
                    </td>
-
                 </tr>
                 <tr v-for="element in civils" :key="element.id">
                     <td>{{element.lastName}}</td>
@@ -126,7 +125,7 @@ table{
 }
 table tr td{
     text-align: center;
-
+}
 button{
   display: block;
   text-align: center;
@@ -136,7 +135,7 @@ button{
   height: 50px;
   width: 150px;
   margin-bottom: 25px;
-
+}
 #table{
     width: 100%;
     height: 80%;
