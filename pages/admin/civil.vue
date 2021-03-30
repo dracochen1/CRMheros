@@ -28,7 +28,6 @@
                    <td>
                        Détail
                    </td>
-
                 </tr>
                 <tr v-for="element in civils" :key="element.id">
                     <td>{{element.lastName}}</td>
@@ -37,7 +36,7 @@
                     <td>{{element.mail}}</td>
                     <td>{{element.phone}}</td>
                     <td><NuxtLink :to="`/admin/civils/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
-                </tr>
+                </tr> 
             </table>
         </div>
       <button><NuxtLink :to="`/admin/civils/post`">Ajouter un civil</NuxtLink></button>
@@ -127,7 +126,6 @@ table{
 table tr td{
     text-align: center;
 }
-<<<<<<< HEAD
 button{
   display: block;
   text-align: center;
@@ -137,11 +135,10 @@ button{
   height: 50px;
   width: 150px;
   margin-bottom: 25px;
-=======
+}
 #table{
     width: 100%;
     height: 80%;
     overflow: auto;
->>>>>>> 52bbbbaf44c79661ea6d7202f0d2b6bee4f0fe17
 }
 </style>
