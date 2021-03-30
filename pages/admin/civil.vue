@@ -28,8 +28,6 @@
                    <td>
                        Détail
                    </td>
-
-                </tr>
                 <tr v-for="element in civils" :key="element.id">
                     <td>{{element.lastName}}</td>
                     <td>{{element.firstName}}</td>
@@ -74,12 +72,7 @@ export default Vue.extend({
         }
         return {
         alert : alert,
-<<<<<<< HEAD
         civils : civils
-
-=======
-        civil : civils
->>>>>>> 52bbbbaf44c79661ea6d7202f0d2b6bee4f0fe17
         };
     }
 
@@ -132,7 +125,6 @@ table{
 table tr td{
     text-align: center;
 }
-<<<<<<< HEAD
 button{
   display: block;
   text-align: center;
@@ -142,11 +134,10 @@ button{
   height: 50px;
   width: 150px;
   margin-bottom: 25px;
-=======
+
 #table{
     width: 100%;
     height: 80%;
     overflow: auto;
->>>>>>> 52bbbbaf44c79661ea6d7202f0d2b6bee4f0fe17
 }
 </style>
