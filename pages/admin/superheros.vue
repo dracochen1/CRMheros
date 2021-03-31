@@ -30,10 +30,10 @@
                 </tr>
                 <tr v-for="element in superVal" :key="element.id">
                     <td>{{element.name}}</td>
-                    <td>{{element.civil.name}}<nuxt-link>Decouvrir l'identité du super</nuxt-link></td>
+                    <td>**** ****<br><nuxt-link :to="`/admin/super-heros/decouvrir-identite/${element.civil.id}`">Découvrir son identité secrète</nuxt-link></td>
                     <td>{{element.power}}</td>
                     <td>{{element.weakness}}</td>
-                    <td><NuxtLink :to="`/admin/supers/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
+                    <td><NuxtLink :to="`/admin/super-heros/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
                 </tr> 
             </table>
         </div>
@@ -55,11 +55,11 @@ export default Vue.extend({
         const  supers  = await $axios.$get(`http://localhost:8080/supers/`);
         for(var i = 0; i < incidents.length ; i++){
             var url = incidents[i].id;
-            incident.push(await $axios.$get(`http://localhost:8080/super/` + url));
+            incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
         }
          for(var i = 0; i < supers.length ; i++){
             var url2 = supers[i].id;
-            superVal.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
+            superVal.push(await $axios.$get(`http://localhost:8080/supers/` + url2));
         }
         var alert = false;
         for(var i = 0; i < incident.length; i++){

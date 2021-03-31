@@ -28,6 +28,9 @@
                    <td>
                        Détail
                    </td>
+                   <td>
+                       Supprimer
+                   </td>
                 </tr>
                 <tr v-for="element in civils" :key="element.id">
                     <td>{{element.lastName}}</td>
@@ -36,6 +39,7 @@
                     <td>{{element.mail}}</td>
                     <td>{{element.phone}}</td>
                     <td><NuxtLink :to="`/admin/civils/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
+                    <td><button id="button_delete" @click="DeleteCivil(element.id)"><img src="@/assets/delete.png" id="delete" alt="logo delete"></button></td>
                 </tr> 
             </table>
         </div>
@@ -49,9 +53,18 @@
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
 import menuAdmin from '~/components/menuAdmin.vue'
+import axios from 'axios';
 export default Vue.extend({
     components: { menuAdmin, Alert },
     layout: "admin",
+    methods: {
+        DeleteCivil : function(id){
+           axios.delete('http://localhost:8080/civils/' + id)
+            .then(response => {
+               document.location.href = "/admin/civil";
+            });
+            },
+    },
     asyncData : async function test ({$axios}) {
         const civils  = await $axios.$get(`http://localhost:8080/civils/`);
         var civil = [];
@@ -87,6 +100,17 @@ export default Vue.extend({
 }
 #eye{
     width: 30px;
+}
+#delete{
+    width: 20px;
+    transform: scale(1);
+}
+#delete:hover{
+    transform: scale(1.10);
+    transition: 200ms;
+}
+#button_delete{
+    border: none;
 }
 #eye:hover,#eye:focus{
     transform: scale(1.15);
