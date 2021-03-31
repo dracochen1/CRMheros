@@ -26,7 +26,15 @@
                    <td>
                        Détail
                    </td>
+                   
                 </tr>
+                <tr v-for="element in superVal" :key="element.id">
+                    <td>{{element.name}}</td>
+                    <td>{{element.civil.name}}<nuxt-link>Decouvrir l'identité du super</nuxt-link></td>
+                    <td>{{element.power}}</td>
+                    <td>{{element.weakness}}</td>
+                    <td><NuxtLink :to="`/admin/supers/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
+                </tr> 
             </table>
         </div>
     </div>
@@ -42,10 +50,16 @@ export default Vue.extend({
     layout: "admin",
     asyncData : async ({$axios}) => {
         var incident = [];
+        var superVal = [];
         const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
+        const  supers  = await $axios.$get(`http://localhost:8080/supers/`);
         for(var i = 0; i < incidents.length ; i++){
             var url = incidents[i].id;
-            incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
+            incident.push(await $axios.$get(`http://localhost:8080/super/` + url));
+        }
+         for(var i = 0; i < supers.length ; i++){
+            var url2 = supers[i].id;
+            superVal.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
         }
         var alert = false;
         for(var i = 0; i < incident.length; i++){
@@ -54,12 +68,20 @@ export default Vue.extend({
             }
         }
         return {
-        alert : alert
+        alert : alert,
+        superVal : superVal
         };
     }
 })
 </script>
 <style scoped>
+#eye{
+    width: 30px;
+}
+#eye:hover,#eye:focus{
+    transform: scale(1.15);
+    transition: 300ms;
+}
 #false{
     display: none;
 }
