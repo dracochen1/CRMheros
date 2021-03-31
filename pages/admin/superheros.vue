@@ -29,6 +29,7 @@
                 </tr>
             </table>
         </div>
+      <button><NuxtLink :to="`/admin/supers/post`">Ajouter un super</NuxtLink></button>
     </div>
   </div>
 </template>
@@ -95,6 +96,18 @@ export default Vue.extend({
     top: -25px;
     margin: auto;
 }
+
+button{
+  display: block;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 25px;
+  height: 50px;
+  width: 150px;
+  margin-bottom: 25px;
+}
+
 #titre h1{
     font-size: 1.3em;
     color: white;
