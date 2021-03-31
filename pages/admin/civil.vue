@@ -28,7 +28,6 @@
                    <td>
                        Détail
                    </td>
-
                 </tr>
                 <tr v-for="element in civils" :key="element.id">
                     <td>{{element.lastName}}</td>
@@ -37,7 +36,7 @@
                     <td>{{element.mail}}</td>
                     <td>{{element.phone}}</td>
                     <td><NuxtLink :to="`/admin/civils/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
-                </tr>
+                </tr> 
             </table>
         </div>
       <button><NuxtLink :to="`/admin/civils/post`">Ajouter un civil</NuxtLink></button>
