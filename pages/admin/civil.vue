@@ -126,7 +126,8 @@ table{
 table tr td{
     text-align: center;
 }
-button{
+
+button {
   display: block;
   text-align: center;
   margin-right: auto;

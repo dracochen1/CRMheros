@@ -6,22 +6,22 @@
         <div class="inner-right-middle">
           <form @submit.prevent="logIn">
             <h2>
-              We are the Nation's First line of defense.</h2>
+              Nous sommes la première ligne de défense.</h2>
             <div v-if="hasErrors" class="alert alert-danger">
               <p>Les identifiants ne sont pas valides</p>
             </div>
             <div class="my-3">
               <label class="text-lg"></label>
-              <b-form-input v-model="civil.id" class="input-form-login" placeholder="SERVICE ID"></b-form-input>
+              <b-form-input v-model="civil.mail" class="input-form-login" placeholder="MAIL DE SERVICE"></b-form-input>
             </div>
             <div class="">
               <label class="text-lg"></label>
-              <b-form-input v-model="civil.password" class="input-form-login" placeholder="PASSWORD"
+              <b-form-input v-model="civil.password" class="input-form-login" placeholder="MOT DE PASSE"
                             type="password"></b-form-input>
             </div>
             <div class="">
               <button class="btn btn-lg" type="submit" @click="logIn">
-                Confirm
+                Se connecter
               </button>
             </div>
           </form>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       civil: {
-        id: "",
+        mail: "",
         password: "",
         hasErrors: false
       },
@@ -50,14 +50,13 @@ export default {
   },
   methods: {
     logIn() {
-      this.$store.dispatch(CIVIL_LOGIN, {id: this.civil.id})
+      this.$store.dispatch(CIVIL_LOGIN, {mail: this.civil.mail})
         .then(() => {
           this.hasErrors = false;
           this.$router.push({name: 'admin'})
         })
         .catch(() => {
           this.hasErrors = true
-          console.log(this.hasErrors)
         });
     }
   }
