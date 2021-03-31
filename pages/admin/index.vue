@@ -9,19 +9,17 @@
         <div class="container">
           <div class="container_logo_mission"><img src="@/assets/exclamation.png" alt="logo missions" id="logo_container_mission"></div>
           <h1>Total missions</h1>
+          <div class="total">{{ compteMission }}</div>
         </div>
         <div class="container">
           <div class="container_logo_hero"><img src="@/assets/spy.png" alt="logo hero" id="logo_container_hero"></div>
           <h1>Nombre de super-heros</h1>
+          <div class="total">{{ compteSuper }}</div>
         </div>
         <div class="container">
           <div class="container_logo_orga"><img src="@/assets/building.png" alt="logo orga" id="logo_container_orga"></div>
-          <h1>Nombre de super-heros</h1>
-          <ul v-for="civil in civils" :key="civil.id">
-            <li>
-              <p>{{civil.lastName}}</p>
-            </li>
-          </ul>
+          <h1>Nombre d'organisations'</h1>
+          <div class="total">{{ compteOrga }}</div>
         </div>
       </div>
       <div id="bottom">
@@ -44,6 +42,9 @@ export default {
   components: { menuAdmin, Alert },
   layout: "admin",
   asyncData: async ({ $axios }) => {
+    const compteSuper  = await $axios.$get(`http://localhost:8080/supers/count`);
+    const compteOrga  = await $axios.$get(`http://localhost:8080/organizations/count`);
+    const compteMission  = await $axios.$get(`http://localhost:8080/missions/count`);
     var date = new Date()
     var month = date.getMonth() + 1;
     var dateday = date.getDate() +"/" +  month +"/" +  date.getFullYear();
@@ -63,7 +64,10 @@ export default {
     return {
       date: dateday,
       civils: civils,
-      alert : alert
+      alert : alert,
+      compteSuper : compteSuper,
+      compteOrga : compteOrga,
+      compteMission : compteMission
     };
 
 
@@ -76,6 +80,12 @@ export default {
 <style scoped>
 #logo_container_mission,#logo_container_hero, #logo_container_orga{
   width: 70%;
+
+}
+.total {
+  margin-top: 13vh;
+  text-align: center;
+  font-size: 25px;
 
 }
 #false{
