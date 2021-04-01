@@ -65,7 +65,12 @@
             {{ organisation.id}}
           </option>
         </select>
-        <span style="padding-left:5%">Organisation is: {{form.organization}}</span>
+      </div>
+      <div class="form-group">
+        <label for="organisations">Civil organisation name is : </label>
+          <ul v-for="organisation in organisations" v-bind:key="organisation.id">
+            <li>{{ organisation.name }}</li>
+          </ul>
       </div>
       <div class="form-group">
         <label for="roles">Civil role is : </label>
@@ -168,5 +173,11 @@ h2{
 }
 span{
   color:white;
+}
+li{
+  color:white;
+}
+ul {
+  list-style-type: none;
 }
 </style>
