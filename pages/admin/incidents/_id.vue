@@ -10,23 +10,25 @@
             <p>Lieu de l'incident : {{incident.location}}</p>
             <p>Déclarant.s de l'incident : {{incident.source}}</p>
             <div id="container_button" v-if="incident.status === true">
-                <button id="button_decl">Declencher une mission</button>
+                <button id="button_decl" @click="openMission">Declencher une mission</button>
                 <button id="button_close" @click="closeIncident(incident)">Fermer l'incident</button>
             </div>
             <div v-else-if="incident.status === false" id="incident_close">
               <p style="color:red">L'incident est fermé</p>
             </div>
         </div>
-
+      
     </div>
+    <form-incident id="form"/>
   </div>
 </template>
 
 <script>
 import menuAdmin from '~/components/menuAdmin.vue';
 import axios from 'axios';
+import FormIncident from '~/components/FormIncident.vue';
 export default {
-  components: { menuAdmin },
+  components: { menuAdmin, FormIncident },
     layout: "admin",
   async asyncData ({ $axios, params }) {
     const incident  = await $axios.$get(`http://localhost:8080/incidents/${params.id}`)
@@ -49,11 +51,17 @@ export default {
         }, (error) => {
 
         });
+      },
+      openMission : function(){
+        document.querySelector("#form").style.display = "inline-table";
       }
   }
 }
 </script>
 <style scoped>
+#form{
+  display: none;
+}
 #right{
   width: 83vw;
   height: 100vh;
