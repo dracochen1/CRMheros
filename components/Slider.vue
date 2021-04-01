@@ -19,7 +19,7 @@ export default {
   methods:{
     postAlert : function(){
    axios.post('http://localhost:8080/incidents/', {
-              "type": "incidie",
+              "type": "incendie",
               "description": "un incendie est déclaré",
               "location" : "Paris",
               "source" : "Glenn Oberlé",
