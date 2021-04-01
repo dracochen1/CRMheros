@@ -27,7 +27,6 @@
       justify-content: space-between;
       align-items: center;
       height: 250px;
-      align-items: center;
       background-color: #0D1218;
       margin:0px;
       padding:20px;
@@ -46,4 +45,12 @@
       display: inline-block;
     }
 
+    @media screen and (max-width: 1024px)
+    {
+      .nav
+      {
+        display: flex;
+        justify-content: center;
+      }
+    }
 </style>

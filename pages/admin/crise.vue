@@ -97,4 +97,21 @@ table{
 table tr td{
   text-align: center;
 }
+@media screen and (max-width: 1024px)
+{
+  .main
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  tr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #right{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 </style>

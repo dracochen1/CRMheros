@@ -62,10 +62,20 @@
         <select id="organisations" v-model="form.organization ">
           <option value="">Please Select</option>
           <option v-for="organisation in organisations" v-bind:key="organisation.id">
-            {{ organisation.id }}
+            {{ organisation.id}}
           </option>
         </select>
         <span style="padding-left:5%">Organisation is: {{form.organization}}</span>
+      </div>
+      <div class="form-group">
+        <label for="roles">Civil role is : </label>
+        <select id="roles" v-model="form.role ">
+          <option value="">Please Select</option>
+          <option v-for="role in roles" v-bind:key="role.id">
+            {{ role.id }}
+          </option>
+        </select>
+        <span style="padding-left:5%">Organisation is: {{form.role}}</span>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" onclick="alert('Civil ajouté!')">Submit</button>
@@ -80,8 +90,10 @@ export default {
   name: 'PostFormAxios',
   asyncData: async ({$axios}) => {
     const organisations  = await $axios.$get(`http://localhost:8080/organizations/`);
+    const roles  = await $axios.$get(`http://localhost:8080/civils/`);
     return{
       organisations : organisations,
+      roles : roles
     }
   },
   data(){
@@ -99,7 +111,8 @@ export default {
         dateAdded: '',
         numberOfIncidentsDeclared: '',
         numberOfAccidentsSuffered: '',
-        organization: ''
+        organization: '',
+        role: ''
       }
     }
   },
@@ -119,7 +132,8 @@ export default {
           dateAdded: this.form.dateAdded,
           numberOfIncidentsDeclared: this.form.numberOfIncidentsDeclared,
           numberOfAccidentsSuffered: this.form.numberOfAccidentsSuffered,
-          organization: this.form.organization
+          organization: this.form.organization,
+          role: this.form.role
         });
         await new Promise(resolve => setTimeout(resolve, 2500));
       } catch (e) {

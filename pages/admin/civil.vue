@@ -40,7 +40,7 @@
                     <td>{{element.phone}}</td>
                     <td><NuxtLink :to="`/admin/civils/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
                     <td><button id="button_delete" @click="DeleteCivil(element.id)"><img src="@/assets/delete.png" id="delete" alt="logo delete"></button></td>
-                </tr> 
+                </tr>
             </table>
         </div>
       <button><NuxtLink :to="`/admin/civils/post`">Ajouter un civil</NuxtLink></button>
@@ -165,5 +165,22 @@ button {
     width: 100%;
     height: 80%;
     overflow: auto;
+}
+@media screen and (max-width: 1024px)
+{
+  .main
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  tr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #right{
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

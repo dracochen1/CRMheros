@@ -134,4 +134,21 @@ table tr td{
     height: 80%;
     overflow: auto;
 }
+@media screen and (max-width: 1024px)
+{
+  .main
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  tr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #right{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 </style>

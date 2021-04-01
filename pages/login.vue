@@ -155,5 +155,28 @@ h2 {
   margin: 40px 0 8px 120px;
   font-size: 14px
 }
-
+@media screen and (max-width: 1024px)
+{
+  .section
+  {
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    width: 100%;
+    background-color: #151515;
+    height: 62px;
+    font-size: 12px;
+    color: #b8b8b8;
+    padding: 1rem 5px 29px 1rem;
+    font-weight: 400;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 0px;
+    margin-top: 5px;
+  }
+}
 </style>

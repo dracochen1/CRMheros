@@ -70,4 +70,16 @@ li:hover, .menu_link:hover{
     margin: auto;
     padding: 2vh;
 }
+@media screen and (max-width: 1024px)
+{
+  ul
+  {
+    display: flex;
+    flex-direction: column;
+    background-color: #ecf0f1;
+    width: 100vw;
+    float: left;
+    min-height: 100vh;
+  }
+}
 </style>

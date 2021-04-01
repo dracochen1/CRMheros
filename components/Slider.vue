@@ -88,4 +88,15 @@ button:hover {
   background-color: red;
   width: 60%;
 }
+
+@media screen and (max-width: 1024px)
+{
+  .Slider
+  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 </style>
