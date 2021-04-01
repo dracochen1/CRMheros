@@ -14,7 +14,7 @@
               <label class="text-lg"></label>
               <b-form-input v-model="civil.mail" class="input-form-login" placeholder="MAIL DE SERVICE"></b-form-input>
             </div>
-            <div class="">
+            <div>
               <label class="text-lg"></label>
               <b-form-input v-model="civil.password" class="input-form-login" placeholder="MOT DE PASSE"
                             type="password"></b-form-input>
@@ -51,7 +51,10 @@ export default {
   methods: {
     logIn() {
       this.$store.dispatch(CIVIL_LOGIN, {mail: this.civil.mail})
-        .then(() => {
+        .then((civil) => {
+          console.error(civil)
+          this.$axios.setToken(this.civil.mail);
+
           this.hasErrors = false;
           this.$router.push({name: 'admin'})
         })

@@ -23,10 +23,11 @@ export default {
   },
 
   actions: {
-    [CIVIL_LOGIN]: async ({commit}, {mail}) => {
-      await axios.get('http://localhost:8080/auth/login/' + mail)
+    [CIVIL_LOGIN]: ({commit}, {mail}) => {
+     return axios.get('http://localhost:8080/auth/login/' + mail)
         .then(response => {
           commit(SET_CIVIL, response.data)
+          return response.data
         })
         .catch(response => {
           throw response.statusText;

@@ -1,8 +1,20 @@
 <template>
-  <div>
+  <div class="main">
     <menu-admin/>
-    <div> Bonjour <span class="font-weight-bold">{{ civilFirstName }}</span></div>
+    <div id="right">
+      <div id="tab">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="~/assets/Logo_HERO_CORP.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Bonjour <span class="font-weight-bolder"> {{civilFirstName}},</span></h5>
+            <p class="card-text">Bienvenue dans l'application de la Hero Corp</p>
+          </div>
+        </div>
+    </div>
+</div>
   </div>
+
+
 </template>
 
 <script>
@@ -12,7 +24,7 @@ import Alert from '~/components/Alert.vue';
 import menuAdmin from '~/components/menuAdmin.vue'
 import {mapState} from 'vuex';
 
-export default Vue.extend({
+export default ({
   components: {menuAdmin, Alert},
   layout: "admin",
   computed: {
@@ -22,14 +34,14 @@ export default Vue.extend({
   },
 
   asyncData: async ({$axios}) => {
-    var incident = [];
+    let incident = [];
     const incidents = await $axios.$get(`http://localhost:8080/incidents/`);
-    for (var i = 0; i < incidents.length; i++) {
-      var url = incidents[i].id;
+    for (let i = 0; i < incidents.length; i++) {
+      let url = incidents[i].id;
       incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
     }
-    var alert = false;
-    for (var i = 0; i < incident.length; i++) {
+    let alert = false;
+    for (let i = 0; i < incident.length; i++) {
       if (incident[i].alert === true) {
         alert = true;
       }
@@ -42,7 +54,15 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+.card-img-top {
+  width: 166px;
+  margin: auto;
+}
+#right{
 
+  width: 58vw;
+  float: right;
+}
 #false {
   display: none;
 }
@@ -50,4 +70,5 @@ export default Vue.extend({
 #true {
   display: table;
 }
+
 </style>
