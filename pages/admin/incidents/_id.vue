@@ -17,14 +17,14 @@
               <p style="color:red">L'incident est fermé</p>
             </div>
         </div>
-      
+
     </div>
     <form-incident id="form"/>
   </div>
 </template>
 
 <script>
-import menuAdmin from '~/components/menuAdmin.vue';
+import menuAdmin from '~/components/MenuAdmin.vue';
 import axios from 'axios';
 import FormIncident from '~/components/FormIncident.vue';
 export default {

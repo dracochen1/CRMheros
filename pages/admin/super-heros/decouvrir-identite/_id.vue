@@ -16,7 +16,7 @@
 
 <script>
 
-import menuAdmin from '~/components/menuAdmin.vue';
+import menuAdmin from '~/components/MenuAdmin.vue';
 import axios from 'axios';
 export default {
   components: { menuAdmin },
@@ -49,7 +49,7 @@ span{
   display: flex;
   align-items: center;
   float: right;
-  
+
 }
 #container_superheros label, #identite, #container_superheros button{
     text-align: center;
@@ -69,7 +69,7 @@ span{
     margin: auto;
     margin-top: 10vh;
     background-color: #f2f2f2;
-    
+
 }
 #container_superheros p, #container_superheros h3{
     text-align: center;

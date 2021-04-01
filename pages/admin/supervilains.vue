@@ -36,19 +36,19 @@
 <script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
-import menuAdmin from '~/components/menuAdmin.vue'
+import menuAdmin from '~/components/MenuAdmin.vue'
 export default Vue.extend({
     components: { menuAdmin, Alert },
     layout: "admin",
     asyncData : async ({$axios}) => {
-        var incident = [];
+        let incident = [];
         const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
-        for(var i = 0; i < incidents.length ; i++){
-            var url = incidents[i].id;
+        for(let i = 0; i < incidents.length ; i++){
+            let url = incidents[i].id;
             incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
         }
-        var alert = false;
-        for(var i = 0; i < incident.length; i++){
+        let alert = false;
+        for(let i = 0; i < incident.length; i++){
             if(incident[i].alert === true){
                 alert = true;
             }

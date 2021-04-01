@@ -21,7 +21,7 @@
 
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
-import menuAdmin from '~/components/menuAdmin.vue'
+import menuAdmin from '~/components/MenuAdmin.vue'
 import {mapState} from 'vuex';
 
 export default ({
