@@ -45,7 +45,7 @@ span{
   display: flex;
   align-items: center;
   float: right;
-  
+
 }
 #container_incident{
    border-radius: 10px;
@@ -54,7 +54,7 @@ span{
     margin: auto;
     margin-top: 10vh;
     background-color: #f2f2f2;
-    
+
 }
 #container_incident p, #container_incident h3{
     text-align: center;
@@ -110,5 +110,16 @@ span{
 }
 #incident_close p{
   font-size: 1.3em;
+}
+@media screen and (max-width: 1024px)
+{
+  #right{
+    margin-left: auto;
+    margin-top: 0px;
+    margin-right: 50px;
+  }
+  #link_back{
+    position:relative;
+  }
 }
 </style>

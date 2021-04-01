@@ -26,7 +26,7 @@
                    <td>
                        Détail
                    </td>
-                   
+
                 </tr>
                 <tr v-for="element in superVal" :key="element.id">
                     <td>{{element.name}}</td>
@@ -34,7 +34,7 @@
                     <td>{{element.power}}</td>
                     <td>{{element.weakness}}</td>
                     <td><NuxtLink :to="`/admin/super-heros/${element.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
-                </tr> 
+                </tr>
             </table>
         </div>
       <button><NuxtLink :to="`/admin/supers/post`">Ajouter un super</NuxtLink></button>
@@ -139,5 +139,22 @@ table{
 }
 table tr td{
     text-align: center;
+}
+@media screen and (max-width: 1024px)
+{
+  .main
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  tr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #right{
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

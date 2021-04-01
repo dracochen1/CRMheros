@@ -15,6 +15,7 @@
           <div class="container_logo_hero"><img src="@/assets/spy.png" alt="logo hero" id="logo_container_hero"></div>
           <h1>Nombre de super-heros</h1>
           <div class="total">{{ compteSuper }}</div>
+
         </div>
         <div class="container">
           <div class="container_logo_orga"><img src="@/assets/building.png" alt="logo orga" id="logo_container_orga"></div>
@@ -192,5 +193,29 @@ export default {
   display: flex;
   margin: 0;
   padding: 0;
+}
+@media screen and (max-width: 1024px)
+{
+  .main
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  .container_logo_mission,.container_logo_hero, .container_logo_orga{
+    display: none;
+  }
+  #top {
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+  }
+  .total {
+    margin-top: 5vh;
+    text-align: center;
+    font-size: 20px;
+  }
+  .container{
+    background-color: white!important;
+  }
 }
 </style>
