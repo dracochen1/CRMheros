@@ -61,16 +61,10 @@
         <label for="organisations">Civil organisation is : </label>
         <select id="organisations" v-model="form.organization ">
           <option value="">Please Select</option>
-          <option v-for="organisation in organisations" v-bind:key="organisation.id">
-            {{ organisation.id}}
+          <option v-for="organisation in organisations" key="organisation.id" :value="organisation.id">
+            {{ organisation.name}}
           </option>
         </select>
-      </div>
-      <div class="form-group">
-        <label for="organisations">Civil organisation name is : </label>
-          <ul v-for="organisation in organisations" v-bind:key="organisation.id">
-            <li>{{ organisation.name }}</li>
-          </ul>
       </div>
       <div class="form-group">
         <label for="roles">Civil role is : </label>
