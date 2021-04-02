@@ -1,6 +1,6 @@
 <template>
-  <div class="main">
-    <h2> Add Civil </h2>
+  <div>
+    <h2> Mettre à jour un civil </h2>
     <form v-on:submit.prevent="submitForm">
       <div class="form-group">
         <label for="firstName">First Name</label>
@@ -8,7 +8,7 @@
       </div>
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Your LastName" v-model="form.lastName">
+        <input type="text" class="form-control" id="lastName" placeholder="lastname" v-model="form.lastName">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
@@ -61,20 +61,10 @@
         <label for="organisations">Civil organisation is : </label>
         <select id="organisations" v-model="form.organization ">
           <option value="">Please Select</option>
-          <option v-for="organisation in organisations" key="organisation.id" :value="organisation.id">
-            {{ organisation.name}}
+          <option v-for="orga in organisations" key="organisation.id" :value="orga.id">
+            {{ orga.name}}
           </option>
         </select>
-      </div>
-      <div class="form-group">
-        <label for="roles">Civil role is : </label>
-        <select id="roles" v-model="form.role ">
-          <option value="">Please Select</option>
-          <option v-for="role in roles" v-bind:key="role.id">
-            {{ role.id }}
-          </option>
-        </select>
-        <span style="padding-left:5%">Organisation is: {{form.role}}</span>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" onclick="alert('Civil ajouté!')">Submit</button>
@@ -85,16 +75,11 @@
 </template>
 
 <script>
-export default {
-  name: 'PostFormAxios',
-  asyncData: async ({$axios}) => {
-    const organisations  = await $axios.$get(`http://localhost:8080/organizations/`);
-    const roles  = await $axios.$get(`http://localhost:8080/civils/`);
-    return{
-      organisations : organisations,
-      roles : roles
-    }
-  },
+import Vue from 'vue'
+import Alert from '~/components/Alert.vue';
+import menuAdmin from '~/components/MenuAdmin.vue'
+export default Vue.extend({
+  components: { menuAdmin, Alert },
   data(){
     return{
       form: {
@@ -110,15 +95,14 @@ export default {
         dateAdded: '',
         numberOfIncidentsDeclared: '',
         numberOfAccidentsSuffered: '',
-        organization: '',
-        role: ''
+        organization: ''
       }
     }
   },
   methods: {
     async submitForm () {
       try {
-        await this.$axios.$post('http://localhost:8080/civils/', {
+        await this.$axios.patch('http://localhost:8080/civils/' + this.$route.params.id, {
           firstName: this.form.firstName,
           lastName: this.form.lastName,
           password: this.form.password,
@@ -131,18 +115,42 @@ export default {
           dateAdded: this.form.dateAdded,
           numberOfIncidentsDeclared: this.form.numberOfIncidentsDeclared,
           numberOfAccidentsSuffered: this.form.numberOfAccidentsSuffered,
-          organization: this.form.organization,
-          role: this.form.role
+          organization: this.form.organization
         });
         await new Promise(resolve => setTimeout(resolve, 2500));
       } catch (e) {
         console.error(e);
       }
     }
+  },
+  asyncData : async function test ({$axios}) {
+    const organisations  = await $axios.$get(`http://localhost:8080/organizations/`);
+    const civils  = await $axios.$get(`http://localhost:8080/civils/`);
+    let civil = [];
+    let incident = [];
+    for(let i = 0; i < civils.length ; i++){
+      let url = civils[i].id;
+      civil.push(await $axios.$get(`http://localhost:8080/civils/` + url));
+    }
+    const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
+    for(let i = 0; i < incidents.length ; i++){
+      let url = incidents[i].id;
+      incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
+    }
+    let alert = false;
+    for(let i = 0; i < incident.length; i++){
+      if(incident[i].alert === true){
+        alert = true;
+      }
+    }
+    return {
+      alert ,
+      civils,
+      organisations
+    };
   }
-}
+})
 </script>
-
 
 <style scoped>
 .form-group {
