@@ -2,7 +2,7 @@
   <div id="app">
     <nav-bar />
       <Nuxt />
-    <foot />
+    <Footer />
   </div>
 </template>
 
@@ -18,10 +18,10 @@ export default {
 
 <script>
 
-import Foot from '~/components/Foot.vue'
+import Footer from '~/components/Footer.vue'
 export default {
   components: {
-    Foot
+    Footer
   }
 }
 </script>

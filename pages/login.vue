@@ -52,11 +52,9 @@ export default {
     logIn() {
       this.$store.dispatch(CIVIL_LOGIN, {mail: this.civil.mail})
         .then((civil) => {
-          console.error(civil)
-          this.$axios.setToken(this.civil.mail);
-
+          this.$axios.setToken(civil.mail);
           this.hasErrors = false;
-          this.$router.push({name: 'admin'})
+          this.$router.push({name: 'admin-account'})
         })
         .catch(() => {
           this.hasErrors = true
@@ -101,7 +99,6 @@ h2 {
 }
 
 .section-inner {
-  height: 694px;
   position: relative;
   max-width: 1400px;
   margin: 0 auto;

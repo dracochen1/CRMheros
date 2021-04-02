@@ -52,7 +52,7 @@
 <script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
-import menuAdmin from '~/components/menuAdmin.vue'
+import menuAdmin from '~/components/MenuAdmin.vue'
 import axios from 'axios';
 export default Vue.extend({
     components: { menuAdmin, Alert },
@@ -67,26 +67,26 @@ export default Vue.extend({
     },
     asyncData : async function test ({$axios}) {
         const civils  = await $axios.$get(`http://localhost:8080/civils/`);
-        var civil = [];
-        var incident = [];
-        for(var i = 0; i < civils.length ; i++){
-            var url = civils[i].id;
+        let civil = [];
+        let incident = [];
+        for(let i = 0; i < civils.length ; i++){
+            let url = civils[i].id;
             civil.push(await $axios.$get(`http://localhost:8080/civils/` + url));
         }
         const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
-        for(var i = 0; i < incidents.length ; i++){
-            var url = incidents[i].id;
+        for(let i = 0; i < incidents.length ; i++){
+            let url = incidents[i].id;
             incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
         }
-        var alert = false;
-        for(var i = 0; i < incident.length; i++){
+        let alert = false;
+        for(let i = 0; i < incident.length; i++){
             if(incident[i].alert === true){
                 alert = true;
             }
         }
         return {
-        alert : alert,
-        civils : civils
+        alert ,
+        civils
         };
     }
 

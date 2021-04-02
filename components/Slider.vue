@@ -3,10 +3,11 @@
   <div class="PriorText">
     <h2>Nous sommes la première ligne de défense.
     </h2>
+    <br>
     <p>
       <strong>Nous accomplissons ce que les autres ne peuvent pas accomplir et allons là où les autres ne peuvent pas aller.</strong><br>
-
-      Une carrière chez HerosCorp ne ressemble à aucune autre. Nous recherchons des personnes de tous horizons pour mener à bien l'œuvre de l'humanité.
+<br>
+      Une carrière chez Hero Corp ne ressemble à aucune autre. Nous recherchons des personnes de tous horizons pour mener à bien l'œuvre de l'humanité.
     </p>
     <button @click="postAlert">LANCER UNE ALERTE</button>
   </div>
@@ -86,7 +87,6 @@ button{
 }
 button:hover {
   background-color: red;
-  width: 60%;
 }
 
 @media screen and (max-width: 1024px)

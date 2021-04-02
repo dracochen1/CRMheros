@@ -45,25 +45,25 @@
 <script>
 import Vue from 'vue'
 import Alert from '~/components/Alert.vue';
-import menuAdmin from '~/components/menuAdmin.vue'
+import menuAdmin from '~/components/MenuAdmin.vue'
 export default Vue.extend({
     components: { menuAdmin, Alert },
     layout: "admin",
     asyncData : async ({$axios}) => {
-        var incident = [];
-        var superVal = [];
+        let incident = [];
+        let superVal = [];
         const  incidents  = await $axios.$get(`http://localhost:8080/incidents/`);
         const  supers  = await $axios.$get(`http://localhost:8080/supers/`);
-        for(var i = 0; i < incidents.length ; i++){
-            var url = incidents[i].id;
+        for(let i = 0; i < incidents.length ; i++){
+            let url = incidents[i].id;
             incident.push(await $axios.$get(`http://localhost:8080/incidents/` + url));
         }
-         for(var i = 0; i < supers.length ; i++){
-            var url2 = supers[i].id;
+         for(let i = 0; i < supers.length ; i++){
+            let url2 = supers[i].id;
             superVal.push(await $axios.$get(`http://localhost:8080/supers/` + url2));
         }
-        var alert = false;
-        for(var i = 0; i < incident.length; i++){
+        let alert = false;
+        for(let i = 0; i < incident.length; i++){
             if(incident[i].alert === true){
                 alert = true;
             }

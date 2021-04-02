@@ -1,13 +1,13 @@
 <template>
     <div class="nav">
         <nuxt-link to="/" class="brand">
-          <img src="~/assets/Logo_HERO_CORP.png">
+          <img class="nav-logo" src="~/assets/Logo_HERO_CORP.png">
         </nuxt-link>
         <nav>
-            <nuxt-link to="/login">
-                Account
+            <nuxt-link to="/login" style="color: #82945d">
+                Compte
             </nuxt-link> |
-            <nuxt-link to="/location">
+            <nuxt-link to="/location" style="color: #82945d">
                 Location
             </nuxt-link>
         </nav>
@@ -15,6 +15,10 @@
 
 </template>
 <style scoped>
+
+.nav-logo {
+  width : 50%
+}
     .brand {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
@@ -26,7 +30,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 250px;
+      height: 130px;
       background-color: #0D1218;
       margin:0px;
       padding:20px;
@@ -47,6 +51,10 @@
 
     @media screen and (max-width: 1024px)
     {
+      .nav-logo {
+        width : 22%;
+        margin-left: 125px;
+      }
       .nav
       {
         display: flex;

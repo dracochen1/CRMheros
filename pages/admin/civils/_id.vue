@@ -25,7 +25,7 @@
 
 <script>
 
-import menuAdmin from '~/components/menuAdmin.vue';
+import menuAdmin from '~/components/MenuAdmin.vue';
 export default {
   components: { menuAdmin },
     layout: "admin",
