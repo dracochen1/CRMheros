@@ -12,6 +12,7 @@
         <li><img src="@/assets/Mission.png" alt="logo mission" class="logo_menu"><nuxt-link to="/admin/mission" class="menu_link">Missions</nuxt-link></li>
         <li><img src="@/assets/crise1.png" alt="logo crise" class="logo_menu"><nuxt-link to="/admin/crise" class="menu_link">Crises</nuxt-link></li>
         <li><img src="@/assets/rapport.png" alt="logo rapport" class="logo_menu"><nuxt-link to="/admin/rapport" class="menu_link">Rapports</nuxt-link></li>
+        <li><img src="@/assets/feedback.png" alt="logo satisfaction" class="logo_menu"><nuxt-link to="/admin/satisfactions" class="menu_link">Satisfactions</nuxt-link></li>
     </ul>
 </div>
 </template>

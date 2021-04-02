@@ -11,7 +11,7 @@
     </p>
     <button @click="postAlert">LANCER UNE ALERTE</button>
   </div>
-  <div class="picture"><img src="~/assets/HerosCorp.png"></div>
+  <div class="picture"><img src="~/assets/HeroCorp.png"></div>
 </div>
 </template>
 <script>
