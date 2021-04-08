@@ -67,7 +67,7 @@
         </select>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" onclick="alert('Civil ajouté!')">Submit</button>
+        <button class="btn btn-primary" onclick="alert('Civil modifié!')">Submit</button>
       </div>
       <button class="back"><NuxtLink :to="`/admin/civil/`">Retour</NuxtLink></button>
     </form>

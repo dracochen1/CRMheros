@@ -6,7 +6,7 @@
 
               <div class="modal-header2">
                <h3>
-                  Une incident a été déclaré
+                  Un incident a été déclaré
                </h3>
               </div>
 

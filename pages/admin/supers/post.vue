@@ -26,11 +26,10 @@
         <label for="civils">L'identité secréte du civil est: </label>
         <select id="civils" v-model="form.civil ">
           <option value="">Selectionnez</option>
-          <option v-for="civil in civils" v-bind:key="civil.id">
-            {{ civil.id }}
+          <option v-for="civil in civils" v-bind:key="civil.id" :value="civil.id">
+            {{ civil.firstName }}
           </option>
         </select>
-        <span style="padding-left:5%">Secret ID: {{form.civil}}</span>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" onclick="alert('Super ajouté!')">Submit</button>
