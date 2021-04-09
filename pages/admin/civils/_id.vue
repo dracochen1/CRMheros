@@ -18,7 +18,7 @@
             <p>Nombre d'incidents déclarés : <span>{{civils.numberOfIncidentsDeclared}}</span></p>
             <p>Nombre d'incidents subit : <span>{{civils.numberOfAccidentsSuffered}}</span></p>
             <p>Incident.s : <span>{{civils.incidents}}</span></p>
-            <td><NuxtLink :to="`/admin/civils/update/${civils.id}`"><img src="@/assets/eye.png" id="eye" alt="logo detail"></NuxtLink></td>
+            <td><NuxtLink :to="`/admin/civils/update/${civils.id}`">Update</NuxtLink></td>
         </div>
         </div>
     </div>
